@@ -4,13 +4,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import DiscoveryPage from "./src/screens/DiscoveryPage";
 import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { StatusBar, View } from "react-native";
+import { Platform, StatusBar, View } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, marginTop: Platform.OS === "ios" ? StatusBar.currentHeight || 0 : 0, backgroundColor: "#003B4A" }}>
       <StatusBar barStyle="light-content" backgroundColor="#003B4A" />
       <NavigationContainer>
         <Tab.Navigator
